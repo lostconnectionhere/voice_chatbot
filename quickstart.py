@@ -2,7 +2,16 @@
 # Licensed under the MIT license. See LICENSE.md file in the project root for full license information.
 
 # <code>
+import json
 import azure.cognitiveservices.speech as speechsdk
+
+# Load the configuration from the JSON file
+with open('config.json') as config_file:
+    config_data = json.load(config_file)
+
+# Extract the subscription key + region
+subscription_key = config_data.get('subscription_key')
+region = config_data.get('service_region')
 
 # Creates an instance of a speech config with specified subscription key and service region.
 # Replace with your own subscription key and service region (e.g., "westus").
